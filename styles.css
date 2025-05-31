@@ -1,0 +1,159 @@
+/*
+  Author: Matt Pahuta
+  Date: June 2025
+*/
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400 500;
+  src: url("./assets/fonts/DMSans-VariableFont_opsz\,wght.ttf");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 400 500;
+  src: url("./assets/fonts/DMSans-Italic-VariableFont_opsz\,wght.ttf")
+}
+
+:root {
+  /* Fonts */
+  --ff-primary: "DM Sans", sans-serif;
+  /* Font Sizes */
+  --fs-400: 1rem;
+  --fs-450: 1.125rem; /* 18px */
+  --fs-500: 2rem; /* 32px */
+  --fs-550: 2.25rem; /* 36px */
+  --fs-600: 2.5rem; /* 40px */
+  --fs-650: 3rem; /* 48px */
+  --fs-700: 4rem: /* 64px */
+  /* Colors */
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-off-white: hsl(0, 0%, 96%);
+  --clr-black: hsl(0, 0%, 7%);
+  --clr-yellow-100: hsl(31, 66%, 93%);
+  --clr-yellow-500: hsl(39, 100%, 71%); 
+  --clr-purple-100: hsl(254, 88%, 90%);
+  --clr-purple-500: hsl(256, 67%, 59%);
+  /* Spacing */
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+}
+
+
+@layer reset {
+  /* Custom Variables */
+  :root {
+    /* Fonts */
+
+    /* Font Sizes */
+
+    /* Colors */
+
+    /* Border radius */
+    --br-soft: 1rem;
+    --br-round: 50%;
+  }
+
+  /* RESET */
+  /* Josh Comeau custom css reset */
+  /* https://www.joshwcomeau.com/css/custom-css-reset/ */
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /*
+  10. Create a root stacking context
+*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--ff-primary);
+  }
+
+  body {
+    margin-block: var(--spacing-400);
+    font-size: var(--fs-450);
+    line-height: 1.3;
+    background-color: var(--clr-off-white);
+    color: var(--clr-black);
+  }
+
+}
+
+@layer layout {
+  .bento-grid {
+    display: grid;
+    gap: var(--spacing-400);
+  }
+}
