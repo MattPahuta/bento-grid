@@ -46,12 +46,11 @@ Add a screenshot of your solution. The easiest way to do this is to use Firefox 
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
 
 ### What I learned
+
+Given the bento grid cards had a lot of variation in things like background colors, font sizes, and padding, this was a great use case for implementing custom variables with default fallbacks. It's an approach I haven't used too often so I was happy to practice it here.
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
@@ -77,7 +76,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Kevin Powell's Bento Grid Tutorial](https://www.youtube.com/watch?v=h4dHvo09cG4) - Full disclosure, Kevin Powell has an excellent (as usual) video tutorial for this project, tackling the layout challenges and creating reusable custom variables. Much of my solution is inspired by his approach with some tweaks here and there. 
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 
