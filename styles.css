@@ -157,7 +157,10 @@
     line-height: 1.1;
     text-wrap: balance;
     span {
-      color: var(--heading-accent-color, var(--clr-black));
+      display: var(--heading-span-display, inline);
+      color: var(--heading-span-color, var(--clr-black));
+      font-size: var(--heading-span-font-size, inherit);
+
     }
   }
 
@@ -182,6 +185,7 @@
     align-content: var(--bento-card-vertical-align, start);
     justify-items: var(--bento-card-horizontal-align, start);
     text-align: var(--bento-card-horizontal-align, start);
+    overflow: clip;
   }
 
   .bento-grid__card img {
@@ -195,7 +199,7 @@
     --bento-card-padding-inline: var(--spacing-400);
     --bento-card-padding-block: var(--spacing-500);
     --heading-font-size: var(--fs-650);
-    --heading-accent-color: var(--clr-yellow-500);
+    --heading-span-color: var(--clr-yellow-500);
     --bento-card-color: var(--clr-white);
     --bento-card-bg: var(--clr-purple-500);
     --bento-card-horizontal-align: center;
@@ -210,12 +214,46 @@
 
   .bento-grid > :nth-child(2) {
     --bento-card-image-order: -1;
+    --bento-card-gap: var(--spacing-200);
 
     /* Address flawed image asset */
     > img {
       filter: drop-shadow(0 0 0.25rem hsla(0, 2%, 16%, 0.25));
       border-radius: 100vw;
     }
+  }
+
+  .bento-grid > :nth-child(3) {
+    --bento-card-bg: var(--clr-yellow-500);
+
+    > img {
+      --bento-card-image-width: 208px;
+      margin-block-end: -36px;;
+    }
+  }
+
+  .bento-grid > :nth-child(4) {
+    --bento-card-padding-block: var(--spacing-400);
+    --bento-card-bg: var(--clr-purple-100);
+    --bento-card-horizontal-align: center;
+  }
+
+  .bento-grid > :nth-child(5) {
+    --bento-card-padding-inline: var(--spacing-300);
+    --bento-card-padding-block: var(--spacing-300);
+    --bento-card-bg: var(--clr-purple-500);
+    --bento-card-color: var(--clr-white);
+    --bento-card-horizontal-align: center;
+    --bento-card-image-width: 228px;
+  }
+
+  .bento-grid > :nth-child(6) {
+    --bento-card-padding-inline: var(--spacing-300);
+    --bento-card-padding-block: var(--spacing-300);
+    --bento-card-image-width: 180px;
+    --heading-font-size: var(--fs-450);
+    --heading-span-font-size: var(--fs-650);
+    --heading-span-display: block;
   }
 
   /* Note: video tutorial timestamp: 23:16 */
