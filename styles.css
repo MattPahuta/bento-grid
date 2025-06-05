@@ -20,9 +20,9 @@
   /* Font Sizes */
   --fs-400: 1rem;
   --fs-450: 1.125rem; /* 18px */
-  --fs-500: 1.5rem; 
-  --fs-550: 1.75rem; 
-  --fs-600: 2rem; 
+  --fs-500: 1.5rem;
+  --fs-550: 1.75rem;
+  --fs-600: 2rem;
   --fs-650: 2.5rem;
   --fs-700: 3rem; /* 48px */
   --fs-800: 3.75rem; /* 60px */
@@ -43,49 +43,25 @@
 }
 
 @layer reset {
-  /* Custom Variables */
-  :root {
-    /* Fonts */
-
-    /* Font Sizes */
-
-    /* Colors */
-
-    /* Border radius */
-    --br-soft: 1rem;
-    --br-round: 50%;
-  }
-
-  /* RESET */
   /* Josh Comeau custom css reset */
   /* https://www.joshwcomeau.com/css/custom-css-reset/ */
-  /* 1. Use a more-intuitive box-sizing model */
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
 
-  /* 2. Remove default margin */
   * {
     margin: 0;
   }
 
-  /* 3. Enable keyword animations */
   @media (prefers-reduced-motion: no-preference) {
     html {
       interpolate-size: allow-keywords;
     }
   }
 
-  body {
-    /* 4. Add accessible line-height */
-    line-height: 1.5;
-    /* 5. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-  }
 
-  /* 6. Improve media defaults */
   img,
   picture,
   video,
@@ -95,7 +71,6 @@
     max-width: 100%;
   }
 
-  /* 7. Inherit fonts for form controls */
   input,
   button,
   textarea,
@@ -103,7 +78,6 @@
     font: inherit;
   }
 
-  /* 8. Avoid text overflows */
   p,
   h1,
   h2,
@@ -114,7 +88,6 @@
     overflow-wrap: break-word;
   }
 
-  /* 9. Improve line wrapping */
   p {
     text-wrap: pretty;
   }
@@ -127,10 +100,7 @@
     text-wrap: balance;
   }
 
-  /*
-  10. Create a root stacking context
-*/
-  #root,
+  */ #root,
   #__next {
     isolation: isolate;
   }
@@ -148,7 +118,13 @@
     line-height: 1.4;
     background-color: var(--clr-off-white);
     color: var(--clr-black);
+
+    @media (width > 37.5rem) {
+      margin-inline: var(--spacing-500);
+    }
+
   }
+
 
   h1,
   h2 {
@@ -163,26 +139,63 @@
       font-style: var(--heading-span-font-style);
     }
   }
-
 }
 
 @layer layout {
   .bento-grid {
+    margin-inline: auto;
+    max-inline-size: 1120px;
     display: grid;
     gap: var(--spacing-400);
+    grid-template-areas: 
+      'card1'
+      'card2'
+      'card3'
+      'card4'
+      'card5'
+      'card6'
+      'card7'
+      'card8'
+      ;
+
+    @media (width > 37.5rem) {
+      grid-template-areas:
+        'card1 card1'
+        'card2 card3'
+        'card4 card4'
+        'card5 card5'
+        'card6 card6'
+        'card7 card8'
+      ;
+    }
+
+    @media (width > 60rem) {
+      grid-template-areas: 
+        'card7 card1 card1 card4'
+        'card7 card2 card3 card4'
+        'card8 card2 card3 card4'
+        'card8 card6 card5 card5';
+    }
   }
 
   /* Default Bento card styles */
   .bento-grid__card {
     /* padding: var(--bento-card-padding, var(--spacing-300)); */
-    padding-inline: var(--bento-card-padding-inline, var(--spacing-200));
-    padding-blocK: var(--bento-card-padding-block, var(--spacing-200));
+    padding-inline: var(
+      --bento-card-padding-inline,
+      var(--spacing-200)
+    );
+    padding-block: var(
+      --bento-card-padding-block,
+      var(--spacing-200)
+    );
     color: var(--bento-card-color, var(--clr-black));
     background-color: var(--bento-card-bg, var(--clr-white));
     border-radius: 10px;
     display: grid;
     gap: var(--bento-card-gap, var(--spacing-300));
-    align-content: var(--bento-card-vertical-align, start);
+    /* align-content: var(--bento-card-vertical-align, start); */
+    align-items: var(--bento-card-vertical-align, start);
     justify-items: var(--bento-card-horizontal-align, start);
     text-align: var(--bento-card-horizontal-align, start);
     overflow: clip;
@@ -204,6 +217,7 @@
     --bento-card-bg: var(--clr-purple-500);
     --bento-card-horizontal-align: center;
     --bento-card-image-width: 192px;
+    grid-area: card1;
 
     .bento-grid__card-content {
       display: grid;
@@ -215,6 +229,7 @@
   .bento-grid > :nth-child(2) {
     --bento-card-image-order: -1;
     --bento-card-gap: var(--spacing-200);
+    grid-area: card2;
 
     /* Address flawed image asset */
     > img {
@@ -225,10 +240,11 @@
 
   .bento-grid > :nth-child(3) {
     --bento-card-bg: var(--clr-yellow-500);
+    grid-area: card3;
 
     > img {
       --bento-card-image-width: 208px;
-      margin-block-end: -36px;;
+      margin-block-end: -36px;
     }
   }
 
@@ -236,6 +252,7 @@
     --bento-card-padding-block: var(--spacing-400);
     --bento-card-bg: var(--clr-purple-100);
     --bento-card-horizontal-align: center;
+    grid-area: card4;
   }
 
   .bento-grid > :nth-child(5) {
@@ -245,6 +262,14 @@
     --bento-card-color: var(--clr-white);
     --bento-card-horizontal-align: center;
     --bento-card-image-width: 228px;
+    grid-area: card5;
+
+    @media (width > 60rem) {
+      /* --bento-card-horizontal-align: start; */
+      --bento-card-vertical-align: center;
+      --bento-card-gap: var(--spacing-100);
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .bento-grid > :nth-child(6) {
@@ -254,6 +279,7 @@
     --heading-font-size: var(--fs-450);
     --heading-span-font-size: var(--fs-650);
     --heading-span-display: block;
+    grid-area: card6;
   }
 
   .bento-grid > :nth-child(7) {
@@ -263,7 +289,7 @@
     --bento-card-image-width: 190px;
     --heading-span-font-style: italic;
     --heading-span-color: var(--clr-purple-500);
-
+    grid-area: card7;
   }
 
   .bento-grid > :nth-child(8) {
@@ -271,11 +297,10 @@
     --bento-card-padding-block: var(--spacing-300);
     --bento-card-bg: var(--clr-yellow-500);
     --bento-card-image-width: 220px;
-
-
+    grid-area: card8;
   }
 
-  /* Note: video tutorial timestamp: 37:32 */
+  /* Note: video tutorial timestamp: 43:25 */
 }
 
 @layer utilities {
