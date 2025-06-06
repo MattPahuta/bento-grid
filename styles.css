@@ -18,14 +18,22 @@
   /* Fonts */
   --ff-primary: 'DM Sans', sans-serif;
   /* Font Sizes */
-  --fs-400: 1rem;
-  --fs-450: 1.125rem; /* 18px */
-  --fs-500: 1.5rem;
-  --fs-550: 1.75rem;
-  --fs-600: 2rem;
-  --fs-650: 2.5rem;
-  --fs-700: 3rem; /* 48px */
-  --fs-800: 3.75rem; /* 60px */
+  --fs-reg: 1.125rem; /* 18px */
+  --fs-med: 1.625rem; /* 26px */ 
+  --fs-lrg: 2rem; /* 32px */
+  --fs-xl: 2.875rem; /* 46px */
+  @media (width > 37.5rem) {
+    --fs-med: 1.75rem; /* 28px */
+    --fs-lrg: 2.25rem; /* 36px */
+    --fs-xl: 3.375rem; /* 54px */
+  }
+  @media (width > 60rem) {
+    --fs-med: 2rem; /* 32px */
+    --fs-lrg: 2.5rem; /* 40px */
+    --fs-xl: 3.875rem; /* 62px */
+  }
+
+
   /* Colors */
   --clr-white: hsl(0, 0%, 100%);
   --clr-off-white: hsl(0, 0%, 96%);
@@ -114,8 +122,8 @@
   body {
     margin-inline: var(--spacing-200);
     margin-block: var(--spacing-400);
-    font-size: var(--fs-450);
-    line-height: 1.4;
+    font-size: var(--fs-reg);
+    line-height: 1.1;
     background-color: var(--clr-off-white);
     color: var(--clr-black);
 
@@ -128,9 +136,9 @@
 
   h1,
   h2 {
-    font-size: var(--heading-font-size, var(--fs-500));
+    font-size: var(--heading-font-size, var(--fs-med));
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 90%;
 
     span {
       display: var(--heading-span-display, inline);
@@ -139,6 +147,11 @@
       font-style: var(--heading-span-font-style);
     }
   }
+
+  h2 {
+    letter-spacing: -1.5px;
+  }
+
 }
 
 @layer layout {
@@ -211,7 +224,7 @@
   .bento-grid > :nth-child(1) {
     --bento-card-padding-inline: var(--spacing-400);
     --bento-card-padding-block: var(--spacing-500);
-    --heading-font-size: var(--fs-650);
+    --heading-font-size: var(--fs-xl);
     --heading-span-color: var(--clr-yellow-500);
     --bento-card-color: var(--clr-white);
     --bento-card-bg: var(--clr-purple-500);
@@ -229,6 +242,7 @@
   .bento-grid > :nth-child(2) {
     --bento-card-image-order: -1;
     --bento-card-gap: var(--spacing-200);
+
     grid-area: card2;
 
     /* Address flawed image asset */
@@ -262,6 +276,7 @@
     --bento-card-color: var(--clr-white);
     --bento-card-horizontal-align: center;
     --bento-card-image-width: 228px;
+    --heading-font-size: var(--fs-lrg);
     grid-area: card5;
 
     @media (width > 60rem) {
@@ -276,8 +291,8 @@
     --bento-card-padding-inline: var(--spacing-300);
     --bento-card-padding-block: var(--spacing-300);
     --bento-card-image-width: 180px;
-    --heading-font-size: var(--fs-450);
-    --heading-span-font-size: var(--fs-650);
+    --heading-font-size: var(--fs-reg);
+    --heading-span-font-size: var(--fs-xl);
     --heading-span-display: block;
     grid-area: card6;
   }
@@ -287,6 +302,7 @@
     --bento-card-padding-block: var(--spacing-400);
     --bento-card-bg: var(--clr-yellow-100);
     --bento-card-image-width: 190px;
+    --heading-font-size: var(--fs-lrg);
     --heading-span-font-style: italic;
     --heading-span-color: var(--clr-purple-500);
     grid-area: card7;
@@ -297,6 +313,7 @@
     --bento-card-padding-block: var(--spacing-300);
     --bento-card-bg: var(--clr-yellow-500);
     --bento-card-image-width: 220px;
+    --heading-font-size: var(--fs-lrg);
     grid-area: card8;
   }
 
