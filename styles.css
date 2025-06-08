@@ -153,7 +153,7 @@
 @layer layout {
   .bento-grid {
     margin-inline: auto;
-    max-inline-size: 1140px;
+    max-inline-size: 70.75rem;
     display: grid;
     gap: var(--spacing-400);
     grid-template-areas:
@@ -169,29 +169,26 @@
     @media (width > 37.5rem) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-      'card1 card1'
-      'card2 card3'
-      'card4 card4'
-      'card5 card5'
-      'card6 card6'
-      'card7 card8';
+        'card1 card1'
+        'card2 card3'
+        'card4 card4'
+        'card5 card5'
+        'card6 card6'
+        'card7 card8';
     }
-    
+
     @media (width > 60rem) {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: 
+      grid-template-areas:
         'card7 card1 card1 card4'
         'card7 card2 card3 card4'
         'card8 card2 card3 card4'
         'card8 card6 card5 card5';
     }
-
   }
 
   /* Default Bento card styles */
   .bento-grid > * {
-    /* .bento-grid__card { */
-    /* padding: var(--bento-card-padding, var(--spacing-300)); */
     padding-inline: var(
       --bento-card-padding-inline,
       var(--spacing-200)
@@ -232,7 +229,7 @@
     grid-area: card1;
 
     @media (width > 37.5rem) {
-      min-height: 324px;
+      /* min-height: 324px; */
       --bento-card-vertical-align: center;
     }
 
@@ -240,6 +237,10 @@
       display: grid;
       gap: var(--spacing-100);
       justify-items: var(--bento-card-horizontal-align);
+    }
+
+    @media (width > 60rem) {
+      --bento-card-padding-block: var(--spacing-400);
     }
   }
 
@@ -261,11 +262,10 @@
         max-width: 14ch;
       }
     }
-    
+
     @media (width > 60rem) {
       /* --bento-card-vertical-align: start; */
       --bento-card-image-width: 150%;
-
     }
 
     /* Address flawed image asset */
@@ -284,10 +284,10 @@
       --bento-card-padding-block: var(--spacing-300);
     }
 
-    >img {
+    > img {
       --bento-card-image-width: 67%;
       margin-bottom: -34px;
-      
+
       @media (width > 37.5rem) {
         --bento-card-image-width: 75%;
         margin-bottom: -26px;
@@ -307,9 +307,9 @@
     --bento-card-image-width: 200%;
     grid-area: card4;
 
-    > img {
+    /* > img {
       max-width: 357px;
-      }
+    } */
 
     > p {
       max-width: 28ch;
@@ -333,17 +333,17 @@
     --bento-card-gap: var(--spacing-500);
     --heading-font-size: var(--fs-lrg);
     grid-area: card5;
-    
+
     h2 {
       text-wrap: inherit;
     }
-    
+
     @media (width > 37.5rem) {
       grid-template-columns: 1fr 1fr;
       --bento-card-vertical-align: center;
       text-align: start;
     }
-    
+
     @media (width > 60rem) {
       --bento-card-padding-inline: var(--spacing-300);
       /* --bento-card-horizontal-align: start; */
@@ -376,7 +376,7 @@
         justify-self: end;
       }
     }
-    
+
     @media (width > 60rem) {
       --bento-card-vertical-align: space-between;
       grid-template-columns: 1fr;
@@ -390,7 +390,7 @@
     --bento-card-padding-inline: var(--spacing-400);
     --bento-card-padding-block: var(--spacing-400);
     --bento-card-bg: var(--clr-yellow-100);
-    --bento-card-image-width: 190px;
+    /* --bento-card-image-width: 190px; */
     --heading-font-size: var(--fs-lrg);
     --heading-span-font-style: italic;
     --heading-span-color: var(--clr-purple-500);
@@ -401,19 +401,27 @@
       --bento-card-padding-block: var(--spacing-300);
       --bento-card-vertical-align: center;
     }
-
+    
     @media (width > 60rem) {
       --bento-card-padding-inline: var(--spacing-400);
+      --bento-card-padding-block: var(--spacing-400);
     }
   }
-
+  
   .bento-grid > :nth-child(8) {
     --bento-card-padding-inline: var(--spacing-300);
     --bento-card-padding-block: var(--spacing-300);
     --bento-card-bg: var(--clr-yellow-500);
-    --bento-card-image-width: 220px;
+    /* --bento-card-image-width: 220px; */
     --heading-font-size: var(--fs-lrg);
     grid-area: card8;
+    
+    @media (width > 60rem) {
+      /* --bento-card-image-width: 100%; */
+      --bento-card-vertical-align: space-between;
+
+    }
+
   }
 
   /* Note: video tutorial timestamp: 43:25 */
