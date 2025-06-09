@@ -48,6 +48,8 @@
   --spacing-400: 32px;
   --spacing-500: 40px;
   --spacing-600: 48px;
+  --spacing-650: 62px;
+  --spacing-700: 70px;
 }
 
 @layer reset {
@@ -119,8 +121,13 @@
   }
 
   body {
+    min-height: 100vh;
     margin-inline: var(--spacing-200);
-    margin-block: var(--spacing-400);
+    padding-block: var(--spacing-200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: var(--fs-reg);
     line-height: 1.1;
     background-color: var(--clr-off-white);
@@ -135,7 +142,6 @@
   h2 {
     font-size: var(--heading-font-size, var(--fs-med));
     font-weight: 500;
-    line-height: 0.85;
 
     span {
       display: var(--heading-span-display, inline);
@@ -145,7 +151,12 @@
     }
   }
 
+  h1 {
+    line-height: 0.93;
+  }
+
   h2 {
+    line-height: 0.9;
     letter-spacing: -1.5px;
   }
 }
@@ -210,13 +221,11 @@
   }
 
   .bento-grid__card img {
-    max-width: var(--bento-card-image-width, 100%);
+    max-width: var(--bento-card-image-max-width, 100%);
     width: var(--bento-card-image-width, 100%);
     order: var(--bento-card-image-order);
   }
 
-  /* Customized Bento Card Styles */
-  /* Get the first card in the bento grid */
   .bento-grid > :nth-child(1) {
     --bento-card-padding-inline: var(--spacing-400);
     --bento-card-padding-block: var(--spacing-500);
@@ -225,11 +234,11 @@
     --bento-card-color: var(--clr-white);
     --bento-card-bg: var(--clr-purple-500);
     --bento-card-horizontal-align: center;
-    --bento-card-image-width: 50%;
+    --bento-card-image-width: 192px;
     grid-area: card1;
 
     @media (width > 37.5rem) {
-      /* min-height: 324px; */
+      --bento-card-padding-block: var(--spacing-700);
       --bento-card-vertical-align: center;
     }
 
@@ -240,13 +249,14 @@
     }
 
     @media (width > 60rem) {
-      --bento-card-padding-block: var(--spacing-400);
+      --bento-card-padding-block: var(--spacing-650);
     }
   }
 
   .bento-grid > :nth-child(2) {
     --bento-card-image-order: -1;
     --bento-card-gap: var(--spacing-200);
+    --bento-card-image-max-width: 316px;
     grid-area: card2;
 
     > h2 {
@@ -264,11 +274,9 @@
     }
 
     @media (width > 60rem) {
-      /* --bento-card-vertical-align: start; */
       --bento-card-image-width: 150%;
     }
 
-    /* Address flawed image asset */
     > img {
       border-radius: 100vw;
     }
@@ -286,7 +294,7 @@
 
     > img {
       --bento-card-image-width: 67%;
-      margin-bottom: -34px;
+      margin-bottom: -37px;
 
       @media (width > 37.5rem) {
         --bento-card-image-width: 75%;
@@ -304,17 +312,16 @@
     --bento-card-padding-block: var(--spacing-400);
     --bento-card-bg: var(--clr-purple-100);
     --bento-card-horizontal-align: center;
-    --bento-card-image-width: 200%;
+    --bento-card-image-max-width: 308px;
     grid-area: card4;
-
-    /* > img {
-      max-width: 357px;
-    } */
 
     > p {
       max-width: 28ch;
     }
 
+    @media (width > 37.5rem) {
+      --bento-card-image-max-width: 357px;
+    }
     @media (width > 60rem) {
       --bento-card-padding-inline: var(--spacing-400);
       --bento-card-horizontal-align: start;
@@ -329,7 +336,7 @@
     --bento-card-bg: var(--clr-purple-500);
     --bento-card-color: var(--clr-white);
     --bento-card-horizontal-align: center;
-    --bento-card-image-width: 228px;
+    --bento-card-image-max-width: 228px;
     --bento-card-gap: var(--spacing-500);
     --heading-font-size: var(--fs-lrg);
     grid-area: card5;
@@ -346,7 +353,6 @@
 
     @media (width > 60rem) {
       --bento-card-padding-inline: var(--spacing-300);
-      /* --bento-card-horizontal-align: start; */
       --bento-card-gap: var(--spacing-100);
     }
   }
@@ -354,7 +360,7 @@
   .bento-grid > :nth-child(6) {
     --bento-card-padding-inline: var(--spacing-300);
     --bento-card-padding-block: var(--spacing-300);
-    --bento-card-image-width: 180px;
+    --bento-card-image-max-width: 179px;
     --heading-font-size: var(--fs-reg);
     --heading-span-font-size: var(--fs-xl);
     --heading-span-display: block;
@@ -366,7 +372,7 @@
 
     span {
       font-weight: 500;
-      margin-block-end: 15px;
+      margin-block-end: var(--spacing-200);
     }
 
     @media (width > 37.5rem) {
@@ -390,7 +396,7 @@
     --bento-card-padding-inline: var(--spacing-400);
     --bento-card-padding-block: var(--spacing-400);
     --bento-card-bg: var(--clr-yellow-100);
-    /* --bento-card-image-width: 190px; */
+    --bento-card-image-max-width: 190px;
     --heading-font-size: var(--fs-lrg);
     --heading-span-font-style: italic;
     --heading-span-color: var(--clr-purple-500);
@@ -401,30 +407,25 @@
       --bento-card-padding-block: var(--spacing-300);
       --bento-card-vertical-align: center;
     }
-    
+
     @media (width > 60rem) {
       --bento-card-padding-inline: var(--spacing-400);
       --bento-card-padding-block: var(--spacing-400);
     }
   }
-  
+
   .bento-grid > :nth-child(8) {
     --bento-card-padding-inline: var(--spacing-300);
     --bento-card-padding-block: var(--spacing-300);
     --bento-card-bg: var(--clr-yellow-500);
-    /* --bento-card-image-width: 220px; */
+    --bento-card-image-max-width: 220px;
     --heading-font-size: var(--fs-lrg);
     grid-area: card8;
-    
+
     @media (width > 60rem) {
-      /* --bento-card-image-width: 100%; */
       --bento-card-vertical-align: space-between;
-
     }
-
   }
-
-  /* Note: video tutorial timestamp: 43:25 */
 }
 
 @layer utilities {
