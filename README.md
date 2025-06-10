@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Frontend Mentor solution page](https://your-solution-url.com)
+- [live demo site](https://bento-grid-mocha.vercel.app/)
 
 ## My process
 
@@ -113,4 +113,4 @@ The basic setup of the bento grid and cards, leveraging custom props with defaul
 
 ## Acknowledgments
 
-I learned more about CSS from Kevin Powell than from almost any other source combined. I'm so grateful for his thoughtfully produced content and course.
+I've probably learned more about CSS from Kevin Powell than from every other source combined. I'm so grateful for his thoughtfully produced content and courses.
