@@ -154,7 +154,7 @@
 
   h2 {
     line-height: 0.9;
-    letter-spacing: -1.5px;
+    letter-spacing: -0.094rem;
   }
 }
 
@@ -195,7 +195,6 @@
     }
   }
 
-  /* Default Bento card styles */
   .bento-grid__card {
     padding-inline: var(
       --bento-card-padding-inline,
@@ -291,16 +290,16 @@
 
     > img {
       --bento-card-image-width: 67%;
-      margin-bottom: -37px;
+      margin-block-end: -37px;
 
       @media (width > 37.5rem) {
         --bento-card-image-width: 75%;
-        margin-bottom: -26px;
+        margin-block-end: -26px;
       }
 
       @media (width > 60rem) {
         --bento-card-image-width: 100%;
-        margin-bottom: -125px;
+        margin-block-end: -125px;
       }
     }
   }
