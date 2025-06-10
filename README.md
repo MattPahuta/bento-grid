@@ -1,6 +1,6 @@
 # Frontend Mentor - Bento grid solution
 
-This is a solution to the [Bento grid challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/bento-grid-RMydElrlOj). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Bento grid challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/bento-grid-RMydElrlOj). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -11,11 +11,9 @@ This is a solution to the [Bento grid challenge on Frontend Mentor](https://www.
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
 
 ## Overview
 
@@ -27,10 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
+![](./project-ss.png)
 
 ### Links
 
@@ -43,42 +38,71 @@ Add a screenshot of your solution. The easiest way to do this is to use Firefox 
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
 - CSS Grid
 - Mobile-first workflow
 
-
 ### What I learned
 
-Given the bento grid cards had a lot of variation in things like background colors, font sizes, and padding, this was a great use case for implementing custom variables with default fallbacks. It's an approach I haven't used too often so I was happy to practice it here.
+I haven't completed all that many bento layouts in the past, so this was a great opportunity to practice Grid techniques and maximize the utility of custom properties with fallbacks. Given these bento cards have a lot of variation in background colors, font sizes, padding, etc., the custom prop strategy Kevin Powell demonstrates (linked below) was ideal. It's an approach I haven't used too often so I was happy to gain more experience with it here.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+The basic setup of the bento grid and cards, leveraging custom props with default values and nested selectors and media queries for more organized styles:
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.bento-grid__card {
+  padding-inline: var(
+    --bento-card-padding-inline,
+    var(--spacing-200)
+  );
+  padding-block: var(--bento-card-padding-block, var(--spacing-200));
+  color: var(--bento-card-color, var(--clr-black));
+  background-color: var(--bento-card-bg, var(--clr-white));
+  border-radius: 10px;
+  display: grid;
+  gap: var(--bento-card-gap, var(--spacing-300));
+  align-content: var(--bento-card-vertical-align, start);
+  align-items: var(--bento-card-vertical-align, start);
+  justify-items: var(--bento-card-horizontal-align, start);
+  text-align: var(--bento-card-horizontal-align, start);
+  overflow: clip;
+}
+
+.bento-grid__card img {
+  max-width: var(--bento-card-image-max-width, 100%);
+  width: var(--bento-card-image-width, 100%);
+  order: var(--bento-card-image-order);
+}
+
+.bento-grid > :nth-child(1) {
+  --bento-card-padding-inline: var(--spacing-400);
+  --bento-card-padding-block: var(--spacing-500);
+  --heading-font-size: var(--fs-xl);
+  --heading-span-color: var(--clr-yellow-500);
+  --bento-card-color: var(--clr-white);
+  --bento-card-bg: var(--clr-purple-500);
+  --bento-card-horizontal-align: center;
+  --bento-card-image-width: 192px;
+  grid-area: card1;
+
+  @media (width > 37.5rem) {
+    --bento-card-padding-block: var(--spacing-700);
+    --bento-card-vertical-align: center;
+  }
+
+  .bento-grid__card-content {
+    display: grid;
+    gap: var(--spacing-100);
+    justify-items: var(--bento-card-horizontal-align);
+  }
+
+  @media (width > 60rem) {
+    --bento-card-padding-block: var(--spacing-650);
+  }
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 ### Useful resources
 
-- [Kevin Powell's Bento Grid Tutorial](https://www.youtube.com/watch?v=h4dHvo09cG4) - Full disclosure, Kevin Powell has an excellent (as usual) video tutorial for this project, tackling the layout challenges and creating reusable custom variables. Much of my solution is inspired by his approach with some tweaks here and there. 
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
+- [Kevin Powell's Bento Grid Tutorial](https://www.youtube.com/watch?v=h4dHvo09cG4) - Full disclosure, Kevin Powell has an excellent (as usual) video tutorial for this project, tackling the layout challenges and creating reusable custom variables. Much of my solution is inspired by his approach with some tweaks here and there. Notably, I had access to the Figma file, whereas Kevin was working off only the design .jpg file, so I was able to achieve more specific details around spacing, image widths, etc.
 
 ## Author
 
@@ -87,7 +111,6 @@ Use this section to outline areas that you want to continue focusing on in futur
 - Bluesky - [@mattpahuta](https://bsky.app/profile/mattpahuta.bsky.social)
 - LinkedIn - [Matt Pahuta](www.linkedin.com/in/mattpahuta)
 
-
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I learned more about CSS from Kevin Powell than from almost any other source combined. I'm so grateful for his thoughtfully produced content and course.

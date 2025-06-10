@@ -32,7 +32,6 @@
     --fs-lrg: 2.5rem; /* 40px */
     --fs-xl: 3.875rem; /* 62px */
   }
-
   /* Colors */
   --clr-white: hsl(0, 0%, 100%);
   --clr-off-white: hsl(0, 0%, 96%);
@@ -123,11 +122,9 @@
   body {
     min-height: 100vh;
     margin-inline: var(--spacing-200);
-    padding-block: var(--spacing-200);
-    display: flex;
-    flex-direction: column;
+    padding-block: var(--spacing-400);
+    display: grid;
     align-items: center;
-    justify-content: center;
     font-size: var(--fs-reg);
     line-height: 1.1;
     background-color: var(--clr-off-white);
@@ -199,7 +196,7 @@
   }
 
   /* Default Bento card styles */
-  .bento-grid > * {
+  .bento-grid__card {
     padding-inline: var(
       --bento-card-padding-inline,
       var(--spacing-200)
@@ -425,11 +422,5 @@
     @media (width > 60rem) {
       --bento-card-vertical-align: space-between;
     }
-  }
-}
-
-@layer utilities {
-  .grid {
-    display: grid;
   }
 }
